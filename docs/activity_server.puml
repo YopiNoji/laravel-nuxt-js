@@ -1,0 +1,9 @@
+@startuml
+フロント --> api.php: /post/create
+api.php --> PostController: PostController::create()
+PostController --> PostRepository: PostRepository::create()
+PostRepository --> DB: Post::query->save()
+DB -> PostRepository: Post
+PostRepository -> PostController: Post
+PostController -> フロント:  Post
+@enduml

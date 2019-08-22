@@ -1,0 +1,13 @@
+@startuml
+"index.vue" --> PostRepository.ts: PostRepository::listPosts()
+note left : asyncData()
+PostRepository.ts --> Laravel: /post/
+Laravel -> PostRepository.ts: Post[]
+PostRepository.ts -> index.vue: Post[]
+
+"index.vue" --> PostRepository.ts: PostRepository::createPost()
+note left : onRegisterClicked()
+PostRepository.ts --> Laravel: /post/create/
+Laravel -> PostRepository.ts: Post
+PostRepository.ts -> index.vue: Post
+@enduml
